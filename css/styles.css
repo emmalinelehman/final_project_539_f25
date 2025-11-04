@@ -1,0 +1,179 @@
+/*
+  Flight Patterns — Cinematic, responsive, and accessible storytelling styles
+  Minimal comments, clean indentation, and motion that respects user preferences.
+*/
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Skip link styles */
+/* Visually hidden utility */
+.visually-hidden {
+  position: absolute !important;
+  height: 1px; width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap;
+}
+
+/* The bird image will be animated to show it's flight path over the page as it scrolls. The bird will flap its wings and move along a set path to simulate flight. The background image will change to reflect the different regions the bird migrates through. */
+
+/* Global styles */
+* { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: #000;
+  color: #fff;
+  font-family: "Inter", Arial, sans-serif;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Focus outline */
+:focus-visible {
+  outline: 3px solid #ffb347;
+  outline-offset: 3px;
+}
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  top: -1000px;
+  left: 1rem;
+  padding: 0.6rem 0.9rem;
+  background: #111;
+  color: #fff;
+  border-radius: 6px;
+  z-index: 9999;
+}
+.skip-link:focus { top: 1rem; }
+
+/* Migration stage layout */
+.migration-stage {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-size: cover;
+  background-position: center;
+  background-attachment: scroll;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.migration-stage.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.migration-stage::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 70%, rgba(0,0,0,0.2));
+  z-index: 1;
+}
+
+/* Stage content — glassmorphism applied here */
+.stage-content {
+  position: relative;
+  z-index: 2;
+  max-width: 680px;
+  width: 90%;
+  padding: 1.2rem;
+  background: rgba(255, 255, 255, 0.1); /* slightly lighter for glass look */
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px) saturate(120%);
+  -webkit-backdrop-filter: blur(10px) saturate(120%);
+  border-radius: 16px;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3);
+}
+.stage-title {
+  font-size: 2rem;
+  margin-bottom: 0.4rem;
+}
+.stage-description {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.9);
+}
+
+/* Stage backgrounds are set via HTML data-image and applied by JS */
+
+/* Bird overlay */
+#bird-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 10;
+}
+.tern-frame {
+  position: absolute;
+  width: 160px;
+  top: 14%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  opacity: 0;
+  transition: opacity 0.15s linear, transform 0.08s linear;
+  filter: drop-shadow(0 6px 16px rgba(0,0,0,0.35));
+}
+.tern-frame.active { opacity: 1; }
+
+@keyframes flap-bounce {
+  0%, 100% { transform: translate(-50%, 0) rotate(0deg); }
+  50% { transform: translate(-50%, -7px) rotate(-2deg); }
+}
+.flapping { animation: flap-bounce 0.28s ease; }
+
+/* Footer with subtle glass effect too */
+#site-footer {
+  padding: 2rem 1rem 3rem;
+  text-align: center;
+  background: rgba(15, 15, 15, 0.7);
+  backdrop-filter: blur(8px) saturate(120%);
+  -webkit-backdrop-filter: blur(8px) saturate(120%);
+  color: rgba(255,255,255,0.85);
+}
+#site-footer p { margin: 0 0 .75rem; }
+#site-footer nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: inline-flex;
+  gap: 1rem;
+}
+#site-footer a {
+  color: #eaeaea;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+#site-footer a:hover { color: #fff; }
+
+/* Responsive adjustments */
+@media (min-width: 720px) {
+  .stage-content { padding: 1.5rem 2rem; }
+  .stage-title { font-size: clamp(2.2rem, 2.5vw, 3rem); }
+  .stage-description { font-size: clamp(1rem, 1.2vw, 1.25rem); }
+}
+
+/* Enable parallax only on larger screens for performance & iOS quirk */
+@media (min-width: 1024px) {
+  .migration-stage { background-attachment: fixed; }
+}
+
+/* Reduce motion preference */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .migration-stage { transition: none; background-attachment: scroll; }
+  .tern-frame { transition: none; animation: none !important; transform: translate(-50%, 0) !important; }
+}
+
+
+
