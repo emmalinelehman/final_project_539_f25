@@ -65,10 +65,11 @@ body {
   text-align: center;
   background-size: cover;
   background-position: center;
-  background-attachment: scroll;
+  background-attachment: fixed; /* Seamless parallax */
   opacity: 0;
   transform: translateY(12px);
   transition: opacity 0.8s ease, transform 0.8s ease;
+  will-change: transform, opacity;
 }
 .migration-stage.is-visible {
   opacity: 1;
@@ -99,10 +100,12 @@ body {
 .stage-title {
   font-size: 2rem;
   margin-bottom: 0.4rem;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
 }
 .stage-description {
   font-size: 1rem;
-  color: rgba(255,255,255,0.9);
+  color: rgba(255,255,255,0.95);
+  text-shadow: 0 1px 2px rgba(0,0,0,0.5);
 }
 
 /* Stage backgrounds are set via HTML data-image and applied by JS */
@@ -113,24 +116,23 @@ body {
   inset: 0;
   pointer-events: none;
   z-index: 10;
+  overflow: hidden; /* Prevent bird from causing scrollbars */
 }
 .tern-frame {
   position: absolute;
   width: 160px;
-  top: 14%;
+  top: 50%;
   left: 50%;
-  transform: translate(-50%, 0);
+  transform: translate(-50%, -50%);
   opacity: 0;
-  transition: opacity 0.15s linear, transform 0.08s linear;
-  filter: drop-shadow(0 6px 16px rgba(0,0,0,0.35));
+  /* Transition handled by JS for smoother continuous motion */
+  /* transition: opacity 0.15s linear; */ 
+  filter: drop-shadow(0 10px 20px rgba(0,0,0,0.4));
+  will-change: transform;
 }
 .tern-frame.active { opacity: 1; }
 
-@keyframes flap-bounce {
-  0%, 100% { transform: translate(-50%, 0) rotate(0deg); }
-  50% { transform: translate(-50%, -7px) rotate(-2deg); }
-}
-.flapping { animation: flap-bounce 0.28s ease; }
+/* Removed CSS animation in favor of JS control for more complex pathing */
 
 /* Footer with subtle glass effect too */
 #site-footer {
@@ -140,6 +142,8 @@ body {
   backdrop-filter: blur(8px) saturate(120%);
   -webkit-backdrop-filter: blur(8px) saturate(120%);
   color: rgba(255,255,255,0.85);
+  position: relative;
+  z-index: 20;
 }
 #site-footer p { margin: 0 0 .75rem; }
 #site-footer nav ul {
@@ -163,17 +167,17 @@ body {
   .stage-description { font-size: clamp(1rem, 1.2vw, 1.25rem); }
 }
 
-/* Enable parallax only on larger screens for performance & iOS quirk */
-@media (min-width: 1024px) {
-  .migration-stage { background-attachment: fixed; }
+/* Parallax is now default, but we can disable it for reduced motion or specific mobile cases if needed */
+@media (hover: none) and (pointer: coarse) {
+   /* Optional: Adjust for mobile if fixed background causes issues */
+   /* .migration-stage { background-attachment: scroll; } */
 }
 
 /* Reduce motion preference */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .migration-stage { transition: none; background-attachment: scroll; }
-  .tern-frame { transition: none; animation: none !important; transform: translate(-50%, 0) !important; }
+  .tern-frame { transition: none; animation: none !important; transform: translate(-50%, -50%) !important; }
 }
-
 
 
