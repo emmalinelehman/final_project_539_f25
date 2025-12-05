@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>About — Flight Patterns</title>
+    <meta name="description"
+        content="About Flight Patterns — the team, mission, methods, and credits behind the Arctic Tern migration story." />
+    <link rel="stylesheet" href="css/html5reset.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+</head>
+
+<body>
+
+    <a class="skip-link" href="#main">Skip to main content</a>
+
+    <header id="site-header" role="banner">
+        <div class="container">
+            <a href="index.html" class="site-title"><h1>Flight Patterns: The Arctic Tern's Journey</h1></a>
+            <nav aria-label="Main navigation">
+                <ul class="nav-list">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html" aria-current="page">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main id="main" class="about-main">
+
+        <section class="hero">
+            <div class="video-bg" aria-hidden="true">
+                <video class="video-bg-media" autoplay muted loop playsinline>
+                    <source src="video/flying_video.mp4" type="video/mp4" alt="video of terns flying on blue sky">
+                </video>
+                <div class="video-overlay"></div>
+            </div>
+
+            <div class="hero-content container js-animate-up">
+                <h2>About Flight Patterns</h2>
+                <p>A cinematic, data-driven experience tracing the Arctic Tern's epic pole-to-pole journey.</p>
+                <p>We blend satellite data, animation, and immersive storytelling to highlight the urgency of polar conservation.</p>
+            </div>
+        </section>
+
+
+        <section class="content-section site-container-padding js-animate-up">
+            <h2 class="content-section__title">Our Mission: From Data to Narrative</h2>
+            <p>
+                The Arctic Tern undertakes the longest annual migration of any animal on Earth—a feat of navigation connecting the Arctic and Antarctic. Our mission is to translate complex satellite tracking data into an accessible, cinematic narrative that inspires global stewardship of migratory species and the vital ocean habitats they rely on.
+            </p>
+        
+            <div class="card-grid">
+                <div class="card">
+                    <h3 class="card__title">Why the Arctic Tern?</h3>
+                    <p class="card__text">The Tern’s annual journey (over 70,000 km) makes it a critical indicator of climate change and ocean health in both polar regions.</p>
+                </div>
+                <div class="card">
+                    <h3 class="card__title">Cinematic Storytelling</h3>
+                    <p class="card__text">We use scroll-triggered animation and parallax effects to create a deep sense of distance and motion, allowing the user to literally follow the flight path.</p>
+                </div>
+                <div class="card">
+                    <h3 class="card__title">Data Visualization</h3>
+                    <p class="card__text">The flight patterns are based on real tracking data from satellite tags, ensuring scientific accuracy underlies the visual experience.</p>
+                </div>
+            </div>
+
+            <p>
+                By experiencing the scale of this migration, we hope to foster a greater appreciation for the fragility of the Earth's polar and ocean ecosystems, linking distant habitats through the story of one incredible bird.
+            </p>
+        </section>
+
+        <section class="timeline site-container-padding js-animate-up">
+            <h2 class="page-section__title" id="timeline-title">Key Migration Facts</h2>
+            <ul class="timeline-list">
+                <li class="timeline__item">
+                    <span class="timeline__key">Breeding:</span> Arctic tundra (Iceland, Greenland, Canada) — June to August
+                </li>
+                <li class="timeline__item">
+                    <span class="timeline__key">Departure:</span> North Atlantic routes starting in late August
+                </li>
+                <li class="timeline__item">
+                    <span class="timeline__key">Crossing:</span> Mid-Atlantic open ocean flights, often covering several thousand kilometers nonstop
+                </li>
+                <li class="timeline__item">
+                    <span class="timeline__key">Feeding:</span> Antarctic waters (Weddell Sea and Southern Ocean) with intense productivity during the southern summer
+                </li>
+                <li class="timeline__item">
+                    <span class="timeline__key">Annual distance:</span> Typically over 70,000 km round trip, giving the tern the most summer daylight of any animal
+                </li>
+            </ul>
+        </section>
+
+        <section class="team site-container-padding js-animate-up">
+            <h2 class="page-section__title" id="team-title">Meet the Team</h2>
+            <p>A multidisciplinary team dedicated to blending science, design, and web technology.</p>
+            <ul class="team-grid">
+                <li class="team__card">
+                    <img src="images/turkey.png" alt="Portrait of Emmaline Lehman" class="team__profile-pic">
+                    <!-- <h3 class="team__name">Emmaline Lehman</h3> -->
+                    <p class="team__bio">Emmaline leads the visual storytelling and UX,
+                        blending photography and scroll-based motion to bring the migration data to life.</p>
+                </li>
+                <li class="team__card">
+                    <img src="images/dad.png" alt="Portrait of David Attenborough" class="team__profile-pic">
+                    <!-- <h3 class="team__name">David Attenborough</h3> -->
+                    <p class="team__bio">Jeremy is responsible for the performance optimization, building the custom bird flight path logic, and ensuring cross-browser compatibility.</p>
+                </li>
+            </ul>
+        </section>
+
+        <section class="contact site-container-padding js-animate-up">
+            <h2 class="page-section__title" id="contact-form">Get Involved in Conservation</h2>
+            <p>Support Arctic Tern research and global marine conservation efforts, or contact us for collaborations.</p>
+
+            <form class="contact-form" action="#" method="post" novalidate>
+                <div class="form-row">
+                    <label for="contact-name">Name</label>
+                    <input id="contact-name" name="name" type="text" required>
+                </div>
+
+                <div class="form-row">
+                    <label for="contact-email">Email</label>
+                    <input id="contact-email" name="email" type="email" required>
+                </div>
+
+                <div class="form-row">
+                    <label for="contact-phone">Phone</label>
+                    <input id="contact-phone" name="phone" type="tel">
+                </div>
+
+                <div class="form-row">
+                    <label for="contact-message">Message</label>
+                    <textarea id="contact-message" name="message" rows="6" required></textarea>
+                </div>
+
+                <div class="form-row">
+                    <button type="submit">Send message</button>
+                </div>
+            </form>
+        </section>
+
+    </main>
+
+    <footer id="site-footer" role="contentinfo">
+        <div class="container">
+            <p>© 2025 <span class="brand-name">Flight Patterns</span> · Data courtesy of the Arctic Tern Research Group</p>
+            <nav aria-label="Footer navigation">
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
+
+</body>
+
+</html>

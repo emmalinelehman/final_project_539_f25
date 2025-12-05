@@ -1,119 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/html5reset.css">
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="icon" type="image/png" href="images/favicon.png">
-    <title>Flight Patterns: The Arctic Tern's Journey</title>
-  </head>
-  <body>
-    <!-- Skip to content for keyboard users -->
-    <a class="skip-link" href="#main">Skip to main content</a>
 
-    <!-- Fixed overlay for decorative bird animation (hidden from assistive tech) -->
-    <div id="bird-overlay" aria-hidden="true">
-      <img
-        src="images/tern_wings_up.png"
-        alt=""
-        id="tern-wings-up"
-        class="tern-frame active"
-        role="presentation"
-      >
-      <img
-        src="images/tern_wings_down.png"
-        alt=""
-        id="tern-wings-down"
-        class="tern-frame"
-        role="presentation"
-      >
-    </div>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/html5reset.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <title>Flight Patterns: The Arctic Tern's Journey</title>
+</head>
 
-    <header class="site-header" aria-label="Site header">
-      <h1 class="visually-hidden">Flight Patterns: The Arctic Tern's Journey</h1>
+<body>
+  <!-- Skip to content for keyboard users -->
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- Fixed overlay for decorative bird animation (hidden from assistive tech) -->
+  <div id="bird-overlay" aria-hidden="true">
+    <img src="images/tern_wings_up.png" alt="" id="tern-wings-up" class="tern-frame active" role="presentation">
+    <img src="images/tern_wings_down.png" alt="" id="tern-wings-down" class="tern-frame" role="presentation">
+  </div>
+
+    <header id="site-header">
+        <div class="container">
+            <a href="index.html" class="site-title"> <h1>Flight Patterns: The Arctic Tern's Journey</h1></a>
+            <nav aria-label="Main navigation">
+                <ul class="nav-list">
+                    <li><a href="index.html" aria-current="page">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <main id="main">
-      <!-- Stage 1: Arctic Breeding Grounds -->
-  <!-- Plug in your JPG for each stage via data-bg -->
-  <section class="migration-stage stage-arctic" id="stage-arctic" data-image="images/parallax_arctic.jpg">
-        <div class="stage-content">
-          <h2 class="stage-title">Arctic Breeding Grounds</h2>
-          <p class="stage-description">
-            The journey begins under the endless summer sun of the Arctic tundra,
-            where the terns raise their young in brilliant daylight.
-          </p>
-        </div>
-      </section>
+  <main id="main">
 
-      <!-- Stage 2: North Atlantic Departure -->
-  <section class="migration-stage stage-north-atlantic" id="stage-north-atlantic" data-image="images/parallax_northatlantic.jpg">
-        <div class="stage-content">
-          <h2 class="stage-title">North Atlantic Departure</h2>
-          <p class="stage-description">
-            As the polar light fades, the terns lift from the cliffs and begin
-            their southward flight across the open sea.
-          </p>
-        </div>
-      </section>
+    <!-- Stage 1: Arctic Breeding Grounds -->
 
-      <!-- Stage 3: Mid-Atlantic Crossing -->
-  <section class="migration-stage stage-mid-atlantic" id="stage-mid-atlantic" data-image="images/parallax_midatlantic.jpg">
-        <div class="stage-content">
-          <h2 class="stage-title">Mid-Atlantic Crossing</h2>
-          <p class="stage-description">
-            Over deep blue waters, the Arctic Tern travels thousands of miles—
-            one of the longest continuous flights of any creature on Earth.
-          </p>
-        </div>
-      </section>
+    <section class="migration-stage stage-arctic" id="stage-arctic" data-image="images/parallax_arctic.jpg">
+      <div class="stage-content">
+        <h2 class="stage-title">Arctic Breeding Grounds</h2>
+        <p class="stage-description">
+          The journey begins under the endless summer sun of the Arctic tundra.
+          Here, amidst blooming wildflowers and rocky outcrops, the terns court, nest,
+          and raise their young in the safety of the 24-hour daylight. It is a time of
+          abundance, preparing the next generation for the monumental flight ahead.
+        </p>
+      </div>
+    </section>
 
-      <!-- Stage 4: Southern Ocean Passage -->
-  <section class="migration-stage stage-southern-ocean" id="stage-southern-ocean" data-image="images/parallax_southernocean.jpg">
-        <div class="stage-content">
-          <h2 class="stage-title">Southern Ocean Passage</h2>
-          <p class="stage-description">
-            Guided by ocean currents and trade winds, the terns glide along the
-            edges of continents toward the icy southern seas.
-          </p>
-        </div>
-      </section>
+    <!-- Stage 2: North Atlantic Departure -->
+    <section class="migration-stage stage-north-atlantic" id="stage-north-atlantic"
+      data-image="images/parallax_northatlantic.jpg">
+      <div class="stage-content">
+        <h2 class="stage-title">North Atlantic Departure</h2>
+        <p class="stage-description">
+          As the polar light fades and the days grow shorter, the terns lift from their
+          nesting grounds. They gather in great flocks, their calls echoing against the
+          cliffs, before embarking on their southward flight across the turbulent
+          North Atlantic, leaving the solid earth behind for the open sky.
+        </p>
+      </div>
+    </section>
 
-      <!-- Stage 5: Antarctic Feeding Grounds -->
-  <section class="migration-stage stage-antarctic" id="stage-antarctic" data-image="images/parallax_antarctic.jpg">
-        <div class="stage-content">
-          <h2 class="stage-title">Antarctic Feeding Grounds</h2>
-          <p class="stage-description">
-            Endless daylight returns as the terns reach the Antarctic coast,
-            feasting in the cold violet glow of the southern summer.
-          </p>
-        </div>
-      </section>
+    <!-- Stage 3: Mid-Atlantic Crossing -->
+    <section class="migration-stage stage-mid-atlantic" id="stage-mid-atlantic"
+      data-image="images/parallax_midatlantic.jpg">
+      <div class="stage-content">
+        <h2 class="stage-title">Mid-Atlantic Crossing</h2>
+        <p class="stage-description">
+          Over deep blue waters, the Arctic Tern travels thousands of miles—one of the
+          longest continuous flights of any creature on Earth. They glide effortlessly
+          on ocean breezes, dipping to the surface to snatch small fish, barely
+          expending energy as they traverse the vast, featureless horizon.
+        </p>
+      </div>
+    </section>
 
-      <!-- Stage 6: Return North -->
-  <section class="migration-stage stage-return-north" id="stage-return-north" data-image="images/parallax_returnnorth.jpg">
-        <div class="stage-content">
-          <h2 class="stage-title">Return North</h2>
-          <p class="stage-description">
-            After months of travel, the Arctic Tern traces its path north again—
-            completing a 44,000-mile journey from pole to pole.
-          </p>
-        </div>
-      </section>
-    </main>
+    <!-- Stage 4: Southern Ocean Passage -->
+    <section class="migration-stage stage-southern-ocean" id="stage-southern-ocean"
+      data-image="images/parallax_southernocean.jpg">
+      <div class="stage-content">
+        <h2 class="stage-title">Southern Ocean Passage</h2>
+        <p class="stage-description">
+          Guided by ancient instincts, ocean currents, and trade winds, the terns
+          navigate the roaring forties and furious fifties. They glide along the
+          edges of continents, using the powerful westerlies to propel them
+          toward the icy, nutrient-rich waters of the southern seas.
+        </p>
+      </div>
+    </section>
 
-    <footer id="site-footer">
-      <p>© 2025 <strong>Flight Patterns</strong> · Designed by Emmaline Lehman</p>
-      <nav aria-label="Footer">
-        <ul>
-          <li><a href="#stage-arctic">Back to Top</a></li>
-          <li><a href="#stage-antarctic">Antarctic</a></li>
-          <li><a href="#stage-return-north">Return North</a></li>
-        </ul>
-      </nav>
-    </footer>
+    <!-- Stage 5: Antarctic Feeding Grounds -->
+    <section class="migration-stage stage-antarctic" id="stage-antarctic" data-image="images/parallax_antarctic.jpg">
+      <div class="stage-content">
+        <h2 class="stage-title">Antarctic Feeding Grounds</h2>
+        <p class="stage-description">
+          Endless daylight returns as the terns reach the Antarctic pack ice.
+          Here, they molt and feast on krill in the cold violet glow of the
+          southern summer, enjoying a second summer in a single year—the only
+          animal on Earth to see more daylight than any other.
+        </p>
+      </div>
+    </section>
 
-    <script src="js/script.js" defer></script>
-  </body>
+    <!-- Stage 6: Return North -->
+    <section class="migration-stage stage-return-north" id="stage-return-north"
+      data-image="images/parallax_returnnorth.jpg">
+      <div class="stage-content">
+        <h2 class="stage-title">Return North</h2>
+        <p class="stage-description">
+          As the Antarctic winter approaches, the Arctic Tern traces its S-shaped
+          path north again. Battling headwinds and storms, they complete a
+          staggering 44,000-mile round trip, returning to the Arctic just as the
+          snow melts, ready to begin the cycle of life anew.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer id="site-footer">
+    <p>© 2025 <span class="brand-name">Flight Patterns</span> · Designed by Emmaline Lehman</p>
+    <nav aria-label="Footer">
+      <ul>
+        <li><a href="#stage-arctic">Back to Top</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </nav>
+  </footer>
+
+  <script src="js/script.js" defer></script>
+</body>
+
 </html>
