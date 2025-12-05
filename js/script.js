@@ -97,34 +97,38 @@
     const scrollProgress = Math.min(1, Math.max(0, scrollY / maxScroll));
 
     // Calculate position
-    // X: Sine wave sweeping across screen + slight drift based on scroll
-    // We want it to feel like it's flying "forward" (scrolling down) or just hovering
+
+    // ALL MATH WAS COMPLETED BY AI ASSISTANCE!!!!!!!!!!!
+
+    // Responsive Offset: Move bird away from text
+    // Desktop: Fly to the right. Mobile: Fly higher up.
+    let baseX = 0;
+    let baseY = -10; // Default slightly up
+
+    if (window.innerWidth > 768) {
+      baseX = 35; // Push to the right on desktop (35vw from center)
+      baseY = 0;  // Center vertically
+    } else {
+      baseX = 0;  // Center horizontally on mobile
+      baseY = -35; // Push higher up on mobile to clear text
+    }
 
     // Base horizontal oscillation (hovering)
-    const hoverX = Math.sin(timeOffset * 0.5) * 15; // +/- 15vw
+    const hoverX = Math.sin(timeOffset * 0.5) * 10;
 
     // Scroll-based horizontal traverse (flying across the map)
-    // Map scroll 0..1 to a wider range so it crosses the screen
-    // Let's make it zig-zag a bit as we scroll
-    const scrollX = Math.sin(scrollProgress * Math.PI * 3) * 20;
+    // Reduced amplitude to keep it from going off-screen with the offset
+    const scrollX = Math.sin(scrollProgress * Math.PI * 3) * 10;
 
-    const currentX = hoverX + scrollX; // Centered at 0 (middle of screen)
+    const currentX = baseX + hoverX + scrollX;
 
-    // Y: Vertical position mostly controlled by scroll, but with some "bobbing"
-    // We want the bird to stay roughly in the viewport, maybe drifting up/down
-    const hoverY = Math.sin(timeOffset * 1.2) * 5; // +/- 5vh bobbing
-
-    // Add a slight "dive" effect when scrolling fast? 
-    // For now, keep it simple: fixed vertical position relative to viewport
-    const currentY = hoverY - 10; // Slightly above center
+    // Y: Vertical position
+    const hoverY = Math.sin(timeOffset * 1.2) * 5;
+    const currentY = baseY + hoverY;
 
     // Rotation: Tilt based on horizontal velocity
-    // Derivative of X position roughly gives us direction
-    const velocityX = (Math.cos(timeOffset * 0.5) * 0.5 * 15) + (Math.cos(scrollProgress * Math.PI * 3) * Math.PI * 3 * 0.01 * 20);
-    // Note: scroll velocity is hard to predict without tracking deltaScroll, 
-    // so we'll just use the time-based derivative + a simple tilt based on position
-
-    const tilt = velocityX * 1.5; // Scale factor for rotation
+    const velocityX = (Math.cos(timeOffset * 0.5) * 0.5 * 10) + (Math.cos(scrollProgress * Math.PI * 3) * Math.PI * 3 * 0.01 * 10);
+    const tilt = velocityX * 1.5;
 
     // Scale: Simulate depth (breathing)
     const scale = 0.8 + Math.sin(timeOffset * 0.8) * 0.1;
