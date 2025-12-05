@@ -510,6 +510,7 @@ body {
   font-size: 1rem;
 }
 
+
 /* Contact form */
 .contact-form {
   max-width: 820px;
@@ -567,9 +568,11 @@ body {
   opacity: 0.8;
 }
 
-/* -----------------------------
-   MEDIA QUERIES (RESPONSIVENESS)
-   ----------------------------- */
+.contact p{
+  text-align: center;
+  color: #f0f0f0;
+  font-size: 1rem;
+}
 
 @media (min-width: 720px) {
   .stage-content {
