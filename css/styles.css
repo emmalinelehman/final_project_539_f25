@@ -1,5 +1,5 @@
 /*
-  Flight Patterns — Cinematic, unified design with Glassmorphism and hardcoded styles
+  Flight Patterns — Cinematic, unified design with Glassmorphism and hardcoded styles cuz root is too hard 
 */
 
 body,
@@ -62,10 +62,6 @@ body {
 }
 
 
-/* -----------------------------
-   HEADER & FOOTER (SHARED - DARK & GLASS)
-   ----------------------------- */
-
 #site-header {
   position: fixed;
   top: 0;
@@ -121,30 +117,56 @@ body {
 }
 
 /* center nav and give pill-like links with responsive sizing */
-#site-header nav ul { justify-content: center; }
+#site-header nav ul {
+  justify-content: center;
+}
+
 #site-header a {
   display: inline-block;
   padding: clamp(0.3rem, 0.8vw, 0.45rem) clamp(0.6rem, 1.6vw, 0.9rem);
   border-radius: 999px;
-  background: rgba(255,255,255,0.03);
+  background: rgba(255, 255, 255, 0.03);
   transition: background .14s ease, transform .12s ease, color .12s ease;
   font-size: clamp(0.85rem, 1.4vw, 1.02rem);
   text-align: center;
 }
-#site-header a:hover, #site-header a[aria-current="page"] {
-  background: rgba(255,220,168,0.12);
+
+#site-header a:hover,
+#site-header a[aria-current="page"] {
+  background: rgba(255, 220, 168, 0.12);
   color: #fff;
   transform: translateY(-2px);
 }
 
 /* Responsive sizes for about page content */
-.hero-content h1 { font-size: clamp(1.3rem, 5.2vw, 2.2rem); }
-.hero-content p { font-size: clamp(0.98rem, 1.8vw, 1.15rem); }
-.page-section__title { font-size: clamp(1.05rem, 2.4vw, 1.9rem); }
-.content-section h2 { font-size: clamp(1rem, 2vw, 1.6rem); }
-.content-section p, .card__text { font-size: clamp(0.98rem, 1.6vw, 1.12rem); }
-.team__name { font-size: clamp(1rem, 1.8vw, 1.15rem); }
-.team__bio { font-size: clamp(0.95rem, 1.6vw, 1.02rem); }
+.hero-content h1 {
+  font-size: clamp(1.3rem, 5.2vw, 2.2rem);
+}
+
+.hero-content p {
+  font-size: clamp(0.98rem, 1.8vw, 1.15rem);
+}
+
+.page-section__title {
+  font-size: clamp(1.05rem, 2.4vw, 1.9rem);
+}
+
+.content-section h2 {
+  font-size: clamp(1rem, 2vw, 1.6rem);
+}
+
+.content-section p,
+.card__text {
+  font-size: clamp(0.98rem, 1.6vw, 1.12rem);
+}
+
+.team__name {
+  font-size: clamp(1rem, 1.8vw, 1.15rem);
+}
+
+.team__bio {
+  font-size: clamp(0.95rem, 1.6vw, 1.02rem);
+}
 
 
 /* Footer: Dark Theme */
@@ -374,6 +396,7 @@ body {
   margin-bottom: 0.6rem;
   text-align: center;
 }
+
 .hero-content p {
   font-size: clamp(1rem, 2.5vw, 1.5rem);
   margin-bottom: 0.6rem;
@@ -429,7 +452,8 @@ body {
 
 /* Make each card flexible/responsive */
 .team-grid .team__card {
-  flex: 1 1 320px;     /* grow, shrink, base width */
+  flex: 1 1 320px;
+  /* grow, shrink, base width */
   max-width: 540px;
   min-width: 260px;
 }
@@ -484,7 +508,7 @@ body {
 }
 
 .team__card img {
-  max-width: 150px;
+  max-width: auto;
   max-height: auto;
   border-radius: 8px;
   object-fit: cover;
@@ -510,6 +534,11 @@ body {
   font-size: 1rem;
 }
 
+.team p {
+  text-align: center;
+  color: #f0f0f0;
+  font-size: 1rem;
+}
 
 /* Contact form */
 .contact-form {
@@ -517,6 +546,12 @@ body {
   margin: 0 auto;
   display: grid;
   gap: 1rem;
+  /* panel styling */
+
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 1.25rem;
+  border-radius: 12px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
 }
 
 .contact-form .form-row {
@@ -568,7 +603,7 @@ body {
   opacity: 0.8;
 }
 
-.contact p{
+.contact p {
   text-align: center;
   color: #f0f0f0;
   font-size: 1rem;
@@ -607,6 +642,11 @@ body {
 
   .contact-form {
     grid-template-columns: 1fr 1fr;
+  }
+
+  /* Make sure inputs align nicely in the panel */
+  .contact-form .form-row {
+    width: 100%;
   }
 
   .contact-form .form-row:nth-last-child(1) {
